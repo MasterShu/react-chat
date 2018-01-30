@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { getDailySentence } from './redux/dailysentence';
 
+@connect(
+  state => state,
+  { getDailySentence }
+)
 class App extends Component {
+  componentDidMount() {
+    this.props.getDailySentence()
+  }
   render() {
     return (
       <div className="App">
