@@ -1,7 +1,9 @@
-import { Api } from './index';
+import { jsonp } from './index';
+
+const url = 'http://sentence.iciba.com/index.php?c=dailysentence&m=getTodaySentence'
 
 export async function getDetails () {
-  const res = await Api('http://sentence.iciba.com/index.php?c=dailysentence&m=getTodaySentence');
-  console.log(res)
-  return res;
+  const res = await jsonp(url)
+  return res
+
 }

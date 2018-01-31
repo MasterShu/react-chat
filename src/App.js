@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { connect } from 'react-redux';
-import { getDailySentence } from './redux/dailysentence';
+import { Route, Switch, Redirect } from 'react-router';
 
-@connect(
-  state => state,
-  { getDailySentence }
-)
+import './App.css';
+import Login from './pages/logon/login';
+// import Register from './pages/logon/register';
+require('./assets/static/js/jmessage-sdk-web.2.6.0.min.js')
+
 class App extends Component {
-  componentDidMount() {
-    this.props.getDailySentence()
-  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="site">
+        <Switch>
+          <Redirect exact from="/"  to="login"/>
+          {/* <Route path="/index" component={Index} /> */}
+          {/* <Route path="/list" component={UserList} /> */}
+          {/* <Route path="/me" component={Me}/> */}
+          <Route path="/login" component={Login} />
+          {/* <Route path="/register" component={Register} /> */}
+        </Switch>
       </div>
     );
   }

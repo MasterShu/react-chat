@@ -13,9 +13,8 @@ const initState = {
 
 export function dailysentence(state=initState, action) {
   switch (action.type) {
-    case [types.SET_DAILY_SENTENTCE]:
-      state = action.payload
-      return state
+    case types.SET_DAILY_SENTENTCE:
+      return {...state, ...action.payload}
 
     default:
       return state

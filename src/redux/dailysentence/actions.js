@@ -3,12 +3,12 @@ import { getDetails } from '../../services/common';
 
 const setDailySentence = (cls) => ({
   type: types.SET_DAILY_SENTENTCE,
-  cls
+  payload: cls
 })
 
 export function getDailySentence() {
-  return dispatch => {
-    const res = getDetails()
+  return async dispatch => {
+    const res = await getDetails()
     dispatch(setDailySentence(res))
   }
 }
